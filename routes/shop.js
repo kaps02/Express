@@ -4,6 +4,6 @@ const router = express.Router(); // Use express.Router() to create router instan
 
 router.get('/', (req , res) => {
     res.send('<h1>Welcome to home page of express!!!!</h1>');
-});
+}) ;
 
 module.exports = router;
