@@ -1,9 +1,12 @@
 
 const express = require('express');
+const path = require('path');
+const rootdir = require('../util/path')
+
 const router = express.Router(); // Use express.Router() to create router instance
 
 router.get('/', (req , res) => {
-    res.send('<h1>Welcome to home page of express!!!!</h1>');
+    res.sendFile(path.join( rootdir ,'views' , 'shop.html')); 
 }) ;
 
 module.exports = router;
