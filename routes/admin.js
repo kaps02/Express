@@ -1,19 +1,14 @@
 const express = require('express');
 const path = require('path');
 
+const controller = require('../controllerrs/product')
+
 const router = express.Router();
 
 // Route to display the form
-router.get('/add-product', (req, res) => {
-    res.sendFile(path.join(__dirname , '../' , 'views' , 'add-product.html')); //can use rootdir as in shop.js
-});
+router.get('/add-product', controller.getAddProduct);
 
 // Route to handle form submission
-router.post('/add-product', (req, res) => {
-
-    console.log(req.body); //logs object with name and price from form
-
-    res.redirect('/');
-});
+router.post('/add-product', controller.postAddProduct);
 
 module.exports = router;

@@ -9,6 +9,8 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const shopContact = require('./routes/contact');
 
+//const controller404 = require('./controllerrs/404Error')
+
 // Middleware to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the public directory
@@ -19,10 +21,11 @@ app.use('/connect' , shopContact);    //remaining url
 
 app.use(shopRoutes);    //remaining url
 
+//app.use(controller404.pageNotFound);  //404 error
 // Default route
 app.use((req, res) => {
     res.sendFile(path.join(__dirname , 'views' , '404.html'))
-});
+ });
 
 // Start the server
 app.listen(port, () => {
